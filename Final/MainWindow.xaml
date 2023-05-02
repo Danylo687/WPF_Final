@@ -1,0 +1,84 @@
+﻿<Window x:Class="Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="395" Width="570" ResizeMode="NoResize">
+    <Window.Resources>
+        <DataTemplate x:Key="ListColorTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="tbTemplate" Grid.Column="0" Text="{Binding Name}" />
+                <Rectangle x:Name="rcTemplate" Grid.Column="1" Width="100" Height="20" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="{Binding Colir}" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Button Name="btnTemplate" Grid.Column="2" Click="btnTemplate_Click" TabIndex="{Binding Index}" >Delete</Button>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    
+    
+    <Grid x:Name="gr1" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <CheckBox x:Name="cbAlpha" IsChecked="True" Click="CheckBox_Checked" >
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Alpha: " />
+                    <TextBlock x:Name="tbAlpha" Text="0" />
+                    <Slider x:Name="slAlpha" Minimum="0" Maximum="255" Width="256" ValueChanged="Slider_ValueChanged"  />
+                </StackPanel>
+            </CheckBox>
+
+            <CheckBox x:Name="cbRed" IsChecked="True" Click="CheckBox_Checked" >
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Red: " />
+                    <TextBlock x:Name="tbRed" Text="0" />
+                    <Slider x:Name="slRed" Minimum="0" Maximum="255" Width="256" ValueChanged="Slider_ValueChanged"  />
+                </StackPanel>
+            </CheckBox>
+
+            <CheckBox x:Name="cbGreen" IsChecked="True" Click="CheckBox_Checked" >
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Green: " />
+                    <TextBlock x:Name="tbGreen" Text="0" />
+                    <Slider x:Name="slGreen" Minimum="0" Maximum="255" Width="256" ValueChanged="Slider_ValueChanged"  />
+                </StackPanel>
+            </CheckBox>
+
+            <CheckBox x:Name="cbBlue" IsChecked="True" Click="CheckBox_Checked" >
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Blue: " />
+                    <TextBlock x:Name="tbBlue" Text="0" />
+                    <Slider x:Name="slBlue" Minimum="0" Maximum="255" Width="256" ValueChanged="Slider_ValueChanged"  />
+                </StackPanel>
+            </CheckBox>
+
+            <Rectangle x:Name="rc1" Width="50" Height="65" Margin="170,-65,0,0" StrokeThickness="1" Stroke="Black" />
+        </StackPanel>
+        <Button x:Name="btnAdd" Margin="-500,10,0,0" Height="20" Width="40" Click="btnAdd_Click">Add</Button>
+
+
+
+        <ListBox   x:Name="ColorList" Grid.Row="1" SelectionMode="Single"
+                  Margin="10" Padding="5"
+                  ItemTemplate="{StaticResource ListColorTemplate}"
+                  BorderThickness="1.5" BorderBrush="LightGray">  
+            
+        </ListBox>
+        
+    </Grid>
+    
+</Window>
