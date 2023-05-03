@@ -16,7 +16,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="tbTemplate" Grid.Column="0" Width="75" Height="20" Margin="-2,0,0,0" FontSize="13" Text="{Binding Name}" />
-                <Rectangle x:Name="rcTemplate" Grid.Column="1" Width="347" Height="26" Margin="0,-3,4,3" >  <!-- Width="347" with out gorizontal scroll / Width="362" max view -->
+                <Rectangle x:Name="rcTemplate" Grid.Column="1" Width="345" Height="26" Margin="0,-3,4,3" >      <!-- Width="345" with out gorizontal scroll / Width="362" max view -->
                     <Rectangle.Fill>
                         <SolidColorBrush Color="{Binding Colir}" />
                     </Rectangle.Fill>
@@ -24,6 +24,32 @@
                 <Button Name="btnTemplate" Grid.Column="2" Width="80" Height="20" Margin="0,0,0,3" BorderThickness="1.3" Click="btnTemplate_Click" TabIndex="{Binding Index}" >Delete</Button>
             </Grid>
         </DataTemplate>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="IsChecked" Value="True"/>
+            <Setter Property="Height" Value="34"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ColorSliderNameStyle">
+            <!-- Width="45" FontSize="14" TextAlignment="Right" -->
+            <Setter Property="Width" Value="45"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="SliderValueStyle">
+            <!-- Width="25" FontSize="14" TextAlignment="Center" Text="0" -->
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Text" Value="0"/>
+        </Style>
+        
+        <Style TargetType="Slider">
+            <!-- Minimum="0" Maximum="255" Width="410" -->
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Maximum" Value="255"/>
+            <Setter Property="Width" Value="410"/>
+        </Style>
     </Window.Resources>
     
     
@@ -35,35 +61,35 @@
 
         <StackPanel Grid.Row="0">
             <!--<Grid Height="130" Width="530" Margin="-30,0,0,0" ></Grid>-->
-            <CheckBox x:Name="cbAlpha" IsChecked="True" Click="CheckBox_Checked" Height="34" Margin="0,3,0,0" >
+            <CheckBox x:Name="cbAlpha" Margin="0,3,0,0" >
                 <StackPanel Orientation="Horizontal" >
-                    <TextBlock Width="45" FontSize="14" TextAlignment="Right" Text="Alpha: " />
-                    <TextBlock x:Name="tbAlpha" Width="25" FontSize="14" TextAlignment="Center" Text="0" />
-                    <Slider x:Name="slAlpha" Minimum="0" Maximum="255" Width="410" ValueChanged="Slider_ValueChanged"  />
+                    <TextBlock Style="{StaticResource ColorSliderNameStyle}" Text="Alpha: " />
+                    <TextBlock x:Name="tbAlpha" Style="{StaticResource SliderValueStyle}" />
+                    <Slider x:Name="slAlpha" ValueChanged="Slider_ValueChanged"  />
                 </StackPanel>
             </CheckBox>
 
-            <CheckBox x:Name="cbRed" IsChecked="True" Click="CheckBox_Checked" Height="34" >
+            <CheckBox x:Name="cbRed" Click="CheckBox_Checked" >
                 <StackPanel Orientation="Horizontal" >
-                    <TextBlock Width="45" FontSize="14" TextAlignment="Right" Text="Red: " />
-                    <TextBlock x:Name="tbRed" Width="25" FontSize="14" TextAlignment="Center" Text="0" />
-                    <Slider x:Name="slRed" Minimum="0" Maximum="255" Width="410" ValueChanged="Slider_ValueChanged"  />
+                    <TextBlock Style="{StaticResource ColorSliderNameStyle}" Text="Red: " />
+                    <TextBlock x:Name="tbRed" Style="{StaticResource SliderValueStyle}" />
+                    <Slider x:Name="slRed" ValueChanged="Slider_ValueChanged"  />
                 </StackPanel>
             </CheckBox>
 
-            <CheckBox x:Name="cbGreen" IsChecked="True" Click="CheckBox_Checked" Height="34" >
+            <CheckBox x:Name="cbGreen" Click="CheckBox_Checked" >
                 <StackPanel Orientation="Horizontal" >
-                    <TextBlock Width="45" FontSize="14" TextAlignment="Right" Text="Green: " />
-                    <TextBlock x:Name="tbGreen" Width="25" FontSize="14" TextAlignment="Center" Text="0" />
-                    <Slider x:Name="slGreen" Minimum="0" Maximum="255" Width="410" ValueChanged="Slider_ValueChanged"  />
+                    <TextBlock Style="{StaticResource ColorSliderNameStyle}" Text="Green: " />
+                    <TextBlock x:Name="tbGreen" Style="{StaticResource SliderValueStyle}" />
+                    <Slider x:Name="slGreen" ValueChanged="Slider_ValueChanged"  />
                 </StackPanel>
             </CheckBox>
 
-            <CheckBox x:Name="cbBlue" IsChecked="True" Click="CheckBox_Checked" Height="34" >
+            <CheckBox x:Name="cbBlue" Click="CheckBox_Checked" >
                 <StackPanel Orientation="Horizontal" >
-                    <TextBlock Width="45" FontSize="14" TextAlignment="Right" Text="Blue: " />
-                    <TextBlock x:Name="tbBlue" Width="25" FontSize="14" TextAlignment="Center" Text="0" />
-                    <Slider x:Name="slBlue" Minimum="0" Maximum="255" Width="410" ValueChanged="Slider_ValueChanged"  />
+                    <TextBlock Style="{StaticResource ColorSliderNameStyle}" Text="Blue: " />
+                    <TextBlock x:Name="tbBlue" Style="{StaticResource SliderValueStyle}" />
+                    <Slider x:Name="slBlue" ValueChanged="Slider_ValueChanged"  />
                 </StackPanel>
             </CheckBox>
 
