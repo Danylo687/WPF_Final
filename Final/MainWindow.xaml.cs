@@ -131,6 +131,7 @@ namespace Final
             MyColor newColor = new MyColor(ConvertColor(), GetColor(), Id);
             colors.Add(newColor);
             IsContainColor();
+            Id++;
         }
 
         private void btnTemplate_Click(object sender, RoutedEventArgs e)

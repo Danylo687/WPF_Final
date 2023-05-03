@@ -16,12 +16,12 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="tbTemplate" Grid.Column="0" Width="75" Height="20" Margin="-2,0,0,0" FontSize="13" Text="{Binding Name}" />
-                <Rectangle x:Name="rcTemplate" Grid.Column="1" Width="365" Height="26" Margin="0,-3,4,3" > <!--Width="347"-->
+                <Rectangle x:Name="rcTemplate" Grid.Column="1" Width="347" Height="26" Margin="0,-3,4,3" >  <!-- Width="347" with out gorizontal scroll / Width="362" max view -->
                     <Rectangle.Fill>
                         <SolidColorBrush Color="{Binding Colir}" />
                     </Rectangle.Fill>
                 </Rectangle>
-                <Button Name="btnTemplate" Grid.Column="2" Width="80" Height="20" Margin="0,0,0,3" BorderThickness="1.3" Click="btnTemplate_Click" TabIndex="{Binding Index}" >Delete</Button>
+                <Button Name="btnTemplate" Grid.Column="2" Width="80" Height="20" Margin="0,0,0,3" BorderThickness="1.3" Click="btnTemplate_Click" TabIndex="{Binding Index}" Content="{Binding Index}" />
             </Grid>
         </DataTemplate>
     </Window.Resources>

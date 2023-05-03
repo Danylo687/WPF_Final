@@ -25,8 +25,5 @@ namespace Final
         public MyColor(string name, Color colir, int id) { 
             this.Name = name; this.Colir = colir; Index = id; }
 
-
-
-
     }
 }
